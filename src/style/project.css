@@ -1,0 +1,256 @@
+.projects-section {
+  padding: 2rem;
+  margin-top: 0 !important;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #181c24 0%, #23272f 100%);
+}
+
+.projects-section h2 {
+  text-align: center;
+  color: #ff69b4; /* pink */
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.project-card {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 1.2rem;
+  width: 320px;
+  text-align: center;
+  box-shadow: none;
+  color: #1de9b6; /* teal */
+  transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  margin: 0.7rem 0;
+  color: #ff69b4; /* pink */
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  font-size: 1.05rem;
+  color: #1de9b6; /* teal */
+}
+
+.project-card button {
+  margin-top: 0.7rem;
+  background-color: #1de9b6;
+  color: #23272f;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.project-card button:hover {
+  background-color: #ff69b4;
+  color: #23272f;
+}
+
+.project-card.animated-card:hover,
+.project-card.animated-card:focus {
+  transform: translateY(-12px) scale(1.04) rotate(-1deg);
+  box-shadow: 0 12px 24px rgba(29, 233, 182, 0.18);
+  z-index: 2;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+ 
+  width: 430px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+  position: relative;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ff69b4;
+}
+
+.screenshots img {
+  width: 100%;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.screenshots-grid img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 320px;
+  box-shadow: 0 4px 16px rgba(29, 233, 182, 0.13);
+}
+
+.modal-content.large-modal {
+  width: 1100px;
+  max-width: 99vw;
+  max-height: 97vh;
+  padding: 2.5rem 3rem 3rem 3rem;
+  background: #23272f;
+  color: #1de9b6;
+  font-size: 1.25rem;
+  position: relative;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  animation: popIn 0.8s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+@media (max-width: 1200px) {
+  .modal-content.large-modal {
+    width: 98vw;
+    padding: 1.5rem 0.5rem;
+  }
+  .screenshots-grid img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  .modal-content.large-modal {
+    width: 99vw;
+    padding: 1rem 0.5rem;
+  }
+  .screenshots-grid img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-content.large-modal {
+    width: 99vw;
+    padding: 0.5rem 0.2rem;
+    font-size: 1rem;
+  }
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+  .screenshots-grid img {
+    height: 80px;
+  }
+}
+
+ul {
+  padding-left: 1.2rem;
+  color: #1de9b6;
+  font-size: 1.1rem;
+}
+
+.github-link {
+  display: block;
+  margin-top: 1.2rem;
+  text-align: right;
+  color: #ff69b4;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.project-details-html {
+  color: #1de9b6;
+  font-size: 1.18rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+.project-details-html ul {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+  padding-left: 1.2rem;
+}
+
+.project-details-html li {
+  margin-bottom: 0.3rem;
+  font-size: 1.08rem;
+}
+
+.project-details-html b {
+  color: #ff69b4;
+  font-size: 1.13rem;
+}

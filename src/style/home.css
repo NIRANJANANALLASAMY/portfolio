@@ -1,0 +1,149 @@
+/* Home Section */
+.home-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.home-overlay {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  /* Fix: remove transparent background to let the dark theme show */
+  background: inherit;
+}
+
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 2rem;
+  gap: 2rem;
+  animation: popIn 0.8s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.text-section {
+  flex: 1;
+  padding: 1rem;
+  min-width: 250px;
+  text-align: left;
+}
+
+.name {
+  font-size: 2.5rem;
+  color: #ff69b4; /* dark pink */
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-size: 1.18rem;
+  margin-top: 1.2rem;
+  color: #1de9b6; /* teal */
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 220px;
+  padding: 1rem;
+}
+
+.profile-img {
+  width: 320px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid #1de9b6;
+  box-shadow: 0 8px 32px rgba(29, 233, 182, 0.1);
+  background: transparent;
+  transition: filter 0.4s, box-shadow 0.3s;
+  filter: brightness(0.97) contrast(1.08);
+}
+
+.profile-img:hover {
+  filter: brightness(1.05) contrast(1.15);
+  box-shadow: 0 12px 36px #ff69b4a0;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-5%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 900px) {
+  .home-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .text-section {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+
+  .image-section {
+    padding: 0.5rem 0;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-container,
+  .home-overlay {
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+  }
+
+  .home-content {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .profile-img {
+    width: 90vw;
+    height: auto;
+  }
+}
